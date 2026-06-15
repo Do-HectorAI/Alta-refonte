@@ -1,0 +1,813 @@
+/* =================================================================
+   ALTA ASSURANCES — Feuille de style globale
+   Design épuré, inspiration hector.legal en version bleue.
+   Titres : Clash Display · Corps : Satoshi (Fontshare)
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   1. Variables de design (palette, typo, espacements, rayons)
+   ----------------------------------------------------------------- */
+:root {
+  /* Couleurs de marque */
+  --bleu-principal: #12223A;   /* bleu marine principal */
+  --bleu-moyen:     #314D7A;   /* bleu secondaire */
+  --bleu-clair:     #4E72AC;   /* bleu accent clair */
+
+  /* Fonds clairs dominants */
+  --fond:           #FFFFFF;   /* blanc pur */
+  --fond-doux:      #F6F8FB;   /* blanc cassé bleuté */
+  --fond-carte:     #FFFFFF;
+
+  /* Texte */
+  --texte:          #12223A;   /* texte principal = bleu marine */
+  --texte-doux:     #51607A;   /* texte secondaire gris-bleu */
+  --texte-inverse:  #FFFFFF;
+
+  /* Bordures & ombres */
+  --bordure:        #E4E9F2;
+  --ombre-douce:    0 4px 24px rgba(18, 34, 58, .06);
+  --ombre-portee:   0 18px 48px rgba(18, 34, 58, .12);
+
+  /* Typographie */
+  --titre: "Clash Display", "Satoshi", system-ui, sans-serif;
+  --corps: "Satoshi", system-ui, -apple-system, sans-serif;
+
+  /* Rythme & largeurs */
+  --largeur-max: 1180px;
+  --rayon:       16px;   /* rayon de carte */
+  --rayon-pill:  999px;  /* boutons toujours arrondis */
+
+  /* Transitions douces */
+  --transition: .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* -----------------------------------------------------------------
+   2. Réinitialisation légère & base
+   ----------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--corps);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--texte);
+  background: var(--fond);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; transition: color var(--transition); }
+
+/* Titres en Clash Display */
+h1, h2, h3, h4 {
+  font-family: var(--titre);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--bleu-principal);
+  margin: 0 0 .4em;
+  letter-spacing: -.01em;
+}
+
+p { margin: 0 0 1.1em; color: var(--texte-doux); }
+
+/* Accessibilité : focus visible homogène */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--bleu-clair);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Lien d'évitement (accessibilité clavier) */
+.lien-evitement {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--bleu-principal);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 0 0 12px 0;
+  z-index: 1000;
+}
+.lien-evitement:focus { left: 0; }
+
+/* -----------------------------------------------------------------
+   3. Conteneurs & utilitaires
+   ----------------------------------------------------------------- */
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section { padding: 96px 0; }
+.section--doux { background: var(--fond-doux); }
+
+/* En-tête de section centré */
+.section-titre {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+.section-titre h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); }
+.section-titre p  { font-size: 1.05rem; }
+
+/* Sur-titre discret (petite étiquette au-dessus des titres) */
+.surtitre {
+  display: inline-block;
+  font-family: var(--corps);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--bleu-clair);
+  margin-bottom: 16px;
+}
+
+/* -----------------------------------------------------------------
+   4. Boutons (toujours arrondis = pill)
+   ----------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--corps);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 30px;
+  border-radius: var(--rayon-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition),
+              color var(--transition), border-color var(--transition),
+              box-shadow var(--transition);
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* Bouton principal (bleu plein) */
+.btn--principal {
+  background: var(--bleu-principal);
+  color: var(--texte-inverse);
+  box-shadow: var(--ombre-douce);
+}
+.btn--principal:hover { background: var(--bleu-moyen); box-shadow: var(--ombre-portee); }
+
+/* Bouton secondaire (contour) */
+.btn--contour {
+  background: transparent;
+  color: var(--bleu-principal);
+  border-color: var(--bordure);
+}
+.btn--contour:hover { border-color: var(--bleu-principal); background: var(--fond-doux); }
+
+/* Bouton clair sur fond foncé */
+.btn--clair {
+  background: #fff;
+  color: var(--bleu-principal);
+}
+.btn--clair:hover { background: var(--fond-doux); }
+
+/* Lien fléché (ex. « Télécharger notre catalogue ») */
+.lien-fleche {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--bleu-moyen);
+}
+.lien-fleche svg { transition: transform var(--transition); }
+.lien-fleche:hover { color: var(--bleu-principal); }
+.lien-fleche:hover svg { transform: translateX(4px); }
+
+/* -----------------------------------------------------------------
+   5. En-tête / bandeau de navigation (fin)
+   ----------------------------------------------------------------- */
+.entete {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--bordure);
+}
+.entete__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px; /* bandeau fin */
+}
+
+/* Logo « A » à gauche */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img { height: 34px; width: auto; }
+.logo__nom {
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--bleu-principal);
+  letter-spacing: .01em;
+}
+
+/* Navigation principale */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.nav__liens {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__liens a {
+  font-weight: 500;
+  font-size: .98rem;
+  color: var(--texte);
+  position: relative;
+}
+/* Soulignement animé au survol */
+.nav__liens a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: var(--bleu-clair);
+  transition: width var(--transition);
+}
+.nav__liens a:hover::after,
+.nav__liens a.actif::after { width: 100%; }
+.nav__liens a:hover { color: var(--bleu-principal); }
+
+/* Bouton hamburger (mobile) */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.burger span {
+  width: 24px; height: 2px;
+  background: var(--bleu-principal);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* -----------------------------------------------------------------
+   6. Hero (accueil)
+   ----------------------------------------------------------------- */
+.hero {
+  text-align: center;
+  padding: 88px 0 72px;
+  background:
+    radial-gradient(900px 420px at 50% -8%, rgba(78, 114, 172, .10), transparent 70%),
+    var(--fond);
+}
+.hero__logo {
+  width: min(440px, 78vw);
+  margin: 0 auto 36px;
+}
+.hero__titre {
+  font-size: clamp(2.1rem, 5.4vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  max-width: 14ch;
+  margin: 0 auto 40px;
+  line-height: 1.05;
+}
+.hero .btn { font-size: 1.05rem; }
+
+/* Bande photo pleine largeur sous le hero */
+.bande-photo {
+  width: 100%;
+  height: clamp(280px, 46vw, 560px);
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+/* -----------------------------------------------------------------
+   7. Section « présentation » (titre + paragraphe plus petit)
+   ----------------------------------------------------------------- */
+.presentation { text-align: center; }
+.presentation h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); max-width: 18ch; margin-inline: auto; }
+.presentation p {
+  max-width: 720px;
+  margin: 22px auto 0;
+  font-size: 1rem;       /* « en plus petit » */
+  color: var(--texte-doux);
+}
+
+/* -----------------------------------------------------------------
+   8. Bloc « 4 atouts » — cartes à survol (couleur + texte changent)
+   ----------------------------------------------------------------- */
+.atouts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.atout {
+  position: relative;
+  min-height: 240px;
+  padding: 30px 26px;
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  background: var(--fond-carte);
+  overflow: hidden;
+  cursor: default;
+  transition: background var(--transition), border-color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
+}
+.atout__icone {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  background: var(--fond-doux);
+  color: var(--bleu-clair);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.atout__icone svg { width: 24px; height: 24px; }
+
+/* Les deux phrases superposées */
+.atout__faces { position: relative; }
+.atout__face {
+  transition: opacity var(--transition), transform var(--transition);
+}
+.atout__face--avant h3 {
+  font-size: 1.18rem;
+  color: var(--bleu-principal);
+  margin: 0;
+}
+/* Face révélée : positionnée par-dessus, masquée au repos */
+.atout__face--apres {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+.atout__face--apres p { color: rgba(255, 255, 255, .92); font-size: 1.05rem; margin: 0; }
+
+/* État survol / focus / actif (tactile) : la carte vire au bleu et révèle la phrase */
+.atout:hover,
+.atout:focus-within,
+.atout.est-actif {
+  background: var(--bleu-principal);
+  border-color: var(--bleu-principal);
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-portee);
+}
+.atout:hover .atout__icone,
+.atout:focus-within .atout__icone,
+.atout.est-actif .atout__icone {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+}
+.atout:hover .atout__face--avant,
+.atout:focus-within .atout__face--avant,
+.atout.est-actif .atout__face--avant {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.atout:hover .atout__face--apres,
+.atout:focus-within .atout__face--apres,
+.atout.est-actif .atout__face--apres {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* -----------------------------------------------------------------
+   9. Bloc catalogue (lien de téléchargement)
+   ----------------------------------------------------------------- */
+.catalogue {
+  text-align: center;
+  background: var(--fond-doux);
+  border-radius: 24px;
+  padding: 64px 32px;
+}
+.catalogue h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+.catalogue p { max-width: 560px; margin: 0 auto 28px; }
+
+/* -----------------------------------------------------------------
+   10. Blocs de contact (bas de page d'accueil & page contact)
+   ----------------------------------------------------------------- */
+.contact-blocs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.contact-bloc {
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  padding: 40px 36px;
+  background: var(--fond);
+  transition: var(--transition);
+}
+.contact-bloc:hover { box-shadow: var(--ombre-douce); transform: translateY(-3px); }
+.contact-bloc h3 { font-size: 1.4rem; }
+.contact-bloc--fonce {
+  background: var(--bleu-principal);
+  border-color: var(--bleu-principal);
+}
+.contact-bloc--fonce h3 { color: #fff; }
+.contact-bloc--fonce p { color: rgba(255, 255, 255, .8); }
+.contact-bloc__mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--bleu-moyen);
+  margin-top: 8px;
+}
+.contact-bloc--fonce .contact-bloc__mail { color: #fff; }
+
+/* -----------------------------------------------------------------
+   11. Pied de page (footer) + newsletter + Qualiopi
+   ----------------------------------------------------------------- */
+.footer {
+  background: var(--bleu-principal);
+  color: rgba(255, 255, 255, .85);
+  padding: 72px 0 32px;
+}
+.footer a { color: rgba(255, 255, 255, .78); }
+.footer a:hover { color: #fff; }
+
+.footer__newsletter {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 56px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+.footer__newsletter .surtitre { color: var(--bleu-clair); }
+.footer__newsletter h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); }
+.footer__form {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+.footer__form input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: var(--rayon-pill);
+  border: 1px solid rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  font-family: var(--corps);
+  font-size: 1rem;
+}
+.footer__form input::placeholder { color: rgba(255, 255, 255, .5); }
+.footer__petit { font-size: .82rem; color: rgba(255, 255, 255, .55); margin-top: 12px; }
+
+.footer__grille {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.footer__col h4 {
+  color: #fff;
+  font-size: .95rem;
+  font-family: var(--corps);
+  font-weight: 600;
+  letter-spacing: .04em;
+  margin-bottom: 18px;
+}
+.footer__col ul { list-style: none; margin: 0; padding: 0; }
+.footer__col li { margin-bottom: 12px; }
+.footer__col li a { font-size: .95rem; }
+
+.footer__marque img { height: 40px; width: auto; margin-bottom: 16px; }
+.footer__marque p { color: rgba(255, 255, 255, .7); font-size: .95rem; max-width: 260px; }
+
+/* Réseaux sociaux */
+.reseaux { display: flex; gap: 12px; margin-top: 8px; }
+.reseaux a {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  transition: var(--transition);
+}
+.reseaux a:hover { background: rgba(255, 255, 255, .18); }
+.reseaux img { width: 18px; height: 18px; }
+
+/* Bloc Qualiopi */
+.qualiopi {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  background: #fff;
+  border-radius: var(--rayon);
+  max-width: 460px;
+}
+.qualiopi img { height: 64px; width: auto; }
+.qualiopi p { color: var(--texte-doux); font-size: .82rem; margin: 0; }
+
+.footer__bas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  font-size: .85rem;
+}
+.footer__bas-liens { display: flex; flex-wrap: wrap; gap: 22px; }
+
+/* -----------------------------------------------------------------
+   12. Pages internes : en-tête de page (hero secondaire)
+   ----------------------------------------------------------------- */
+.page-hero {
+  text-align: center;
+  padding: 80px 0 56px;
+  background:
+    radial-gradient(700px 320px at 50% -10%, rgba(78, 114, 172, .10), transparent 70%),
+    var(--fond);
+}
+.page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.page-hero p { max-width: 640px; margin: 14px auto 0; font-size: 1.08rem; }
+
+/* -----------------------------------------------------------------
+   13. Page À propos
+   ----------------------------------------------------------------- */
+.apropos-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.apropos-intro__photo img {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: var(--ombre-portee);
+}
+.apropos-bloc { max-width: 760px; margin: 0 auto; }
+.apropos-bloc h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin-top: 1.4em; }
+.apropos-bloc ul { color: var(--texte-doux); padding-left: 1.2em; }
+.apropos-bloc li { margin-bottom: 10px; }
+
+/* Citation des fondatrices */
+.citation {
+  background: var(--bleu-principal);
+  color: #fff;
+  border-radius: 24px;
+  padding: 56px clamp(28px, 5vw, 72px);
+  text-align: center;
+}
+.citation blockquote {
+  font-family: var(--titre);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  line-height: 1.4;
+  color: #fff;
+  margin: 0 0 24px;
+}
+.citation cite { font-style: normal; color: rgba(255, 255, 255, .82); font-size: 1rem; }
+.citation cite strong { display: block; color: #fff; font-weight: 600; font-size: 1.1rem; }
+
+/* -----------------------------------------------------------------
+   14. Page FAQ (accordéon)
+   ----------------------------------------------------------------- */
+.faq { max-width: 820px; margin: 0 auto; }
+.faq__item {
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  margin-bottom: 16px;
+  background: #fff;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.faq__item:hover { box-shadow: var(--ombre-douce); }
+.faq__q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 24px 26px;
+  font-family: var(--titre);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--bleu-principal);
+}
+.faq__q .plus {
+  flex: 0 0 auto;
+  width: 26px; height: 26px;
+  position: relative;
+  transition: transform var(--transition);
+}
+.faq__q .plus::before,
+.faq__q .plus::after {
+  content: "";
+  position: absolute;
+  background: var(--bleu-clair);
+  border-radius: 2px;
+}
+.faq__q .plus::before { top: 12px; left: 4px; right: 4px; height: 2px; }
+.faq__q .plus::after  { left: 12px; top: 4px; bottom: 4px; width: 2px; transition: transform var(--transition); }
+.faq__item.ouvert .plus::after { transform: scaleY(0); }
+
+.faq__r {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition);
+}
+.faq__r-inner { padding: 0 26px 24px; color: var(--texte-doux); font-size: 1rem; }
+.faq__r-inner p:last-child { margin-bottom: 0; }
+
+/* -----------------------------------------------------------------
+   15. Formulaires (Contact, Connexion)
+   ----------------------------------------------------------------- */
+.form { display: grid; gap: 18px; }
+.form__ligne { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+.champ { display: flex; flex-direction: column; gap: 8px; }
+.champ label {
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--bleu-moyen);
+}
+.champ input,
+.champ textarea,
+.champ select {
+  padding: 14px 16px;
+  border: 1.5px solid var(--bordure);
+  border-radius: 12px;
+  font-family: var(--corps);
+  font-size: 1rem;
+  color: var(--texte);
+  background: var(--fond);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.champ input:focus,
+.champ textarea:focus {
+  border-color: var(--bleu-clair);
+  box-shadow: 0 0 0 3px rgba(78, 114, 172, .14);
+  outline: none;
+}
+.champ textarea { resize: vertical; min-height: 140px; }
+.champ--case { flex-direction: row; align-items: flex-start; gap: 12px; }
+.champ--case input { width: auto; margin-top: 4px; }
+.champ--case label { text-transform: none; letter-spacing: 0; font-weight: 400; color: var(--texte-doux); font-size: .92rem; }
+
+/* Carte qui contient un formulaire */
+.carte-form {
+  background: #fff;
+  border: 1px solid var(--bordure);
+  border-radius: 24px;
+  padding: clamp(28px, 4vw, 48px);
+  box-shadow: var(--ombre-douce);
+}
+
+/* Mise en page authentification (connexion / inscription côte à côte) */
+.auth-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.auth-grille .carte-form h2 { font-size: 1.5rem; }
+.auth-note {
+  text-align: center;
+  font-size: .9rem;
+  color: var(--texte-doux);
+  max-width: 720px;
+  margin: 32px auto 0;
+}
+
+/* Page contact en deux colonnes (infos + formulaire) */
+.contact-grille {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+.contact-infos h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.contact-infos .contact-bloc__mail { margin-top: 16px; }
+
+/* -----------------------------------------------------------------
+   16. Page « Nos formations » (placeholder)
+   ----------------------------------------------------------------- */
+.placeholder {
+  text-align: center;
+  border: 2px dashed var(--bordure);
+  border-radius: 24px;
+  padding: clamp(48px, 8vw, 96px) 32px;
+  background: var(--fond-doux);
+  max-width: 820px;
+  margin: 0 auto;
+}
+.placeholder .surtitre { color: var(--bleu-clair); }
+.placeholder h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
+.placeholder p { max-width: 520px; margin-inline: auto; }
+
+/* -----------------------------------------------------------------
+   17. Pages légales (texte long)
+   ----------------------------------------------------------------- */
+.contenu-legal { max-width: 800px; margin: 0 auto; }
+.contenu-legal h2 { font-size: 1.5rem; margin-top: 1.8em; }
+.contenu-legal h3 { font-size: 1.15rem; margin-top: 1.4em; }
+.contenu-legal p, .contenu-legal li { color: var(--texte-doux); font-size: 1rem; }
+.contenu-legal ul { padding-left: 1.2em; }
+
+/* -----------------------------------------------------------------
+   18. Animations d'apparition douces
+   ----------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* -----------------------------------------------------------------
+   19. Responsive — tablette & mobile
+   ----------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .atouts { grid-template-columns: repeat(2, 1fr); }
+  .footer__grille { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 820px) {
+  body { font-size: 17px; }
+  .section { padding: 64px 0; }
+
+  /* Navigation mobile : menu déroulant plein écran */
+  .burger { display: flex; }
+  .nav {
+    position: fixed;
+    inset: 64px 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--bordure);
+    box-shadow: var(--ombre-portee);
+    padding: 12px 24px 24px;
+    transform: translateY(-130%);
+    transition: transform var(--transition);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  .nav.ouvert { transform: translateY(0); }
+  .nav__liens { flex-direction: column; gap: 0; }
+  .nav__liens li { border-bottom: 1px solid var(--bordure); }
+  .nav__liens a { display: block; padding: 16px 4px; }
+  .nav__liens a::after { display: none; }
+  .nav .btn { margin-top: 16px; justify-content: center; }
+
+  .apropos-intro { grid-template-columns: 1fr; gap: 36px; }
+  .contact-grille { grid-template-columns: 1fr; gap: 36px; }
+  .auth-grille { grid-template-columns: 1fr; }
+  .contact-blocs { grid-template-columns: 1fr; }
+  .footer__form { flex-direction: column; }
+  .footer__form .btn { justify-content: center; }
+}
+
+@media (max-width: 560px) {
+  .atouts { grid-template-columns: 1fr; }
+  .footer__grille { grid-template-columns: 1fr; gap: 32px; }
+  .form__ligne { grid-template-columns: 1fr; }
+  .section { padding: 56px 0; }
+  .catalogue { padding: 44px 22px; }
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1; transform: none; }
+}
