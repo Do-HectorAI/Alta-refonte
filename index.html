@@ -24,14 +24,12 @@
   <header class="entete">
     <div class="conteneur entete__inner">
       <a class="logo" href="index.html" aria-label="Alta Assurances — Accueil">
-        <img src="assets/img/logo-a.svg" alt="" width="34" height="34">
-        <span class="logo__nom">Alta Assurances</span>
+        <!-- EMPLACEMENT LOGO : déposez votre logo dans assets/img/logo.png -->
+        <img class="logo__img" src="assets/img/logo.png" alt="Alta Assurances">
       </a>
-
       <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-principal">
         <span></span><span></span><span></span>
       </button>
-
       <nav class="nav" id="nav-principal" aria-label="Navigation principale">
         <ul class="nav__liens">
           <li><a href="a-propos.html">À propos</a></li>
@@ -47,19 +45,17 @@
   <main id="contenu">
 
     <!-- ==========================================================
-         HERO — logo en grand, un titre, un bouton
+         HERO — logo + slogan SUR la photo (floutée + assombrie)
+         Logo en grand, slogan plus petit, le tout en blanc.
          ========================================================== -->
     <section class="hero">
-      <div class="conteneur">
+      <div class="hero__overlay"></div>
+      <div class="conteneur hero__contenu">
         <img class="hero__logo" src="assets/img/hero_logo.png" alt="Alta Assurances">
-        <h1 class="hero__titre">Recentrer l'assurance sur ceux qui la font</h1>
-        <a class="btn btn--principal" href="formations.html">Consulter nos formations</a>
+        <h1 class="hero__slogan">Recentrer l'assurance sur ceux qui la font</h1>
+        <a class="btn btn--clair" href="formations.html">Consulter nos formations</a>
       </div>
     </section>
-
-    <!-- Bande photo pleine largeur (bandeau e-learning) -->
-    <img class="bande-photo" src="assets/img/hero_photo.jpg"
-         alt="Professionnelle suivant une formation en ligne sur son ordinateur portable">
 
     <!-- ==========================================================
          PRÉSENTATION — titre + paragraphe (plus petit)
@@ -81,9 +77,7 @@
 
           <!-- Atout 1 -->
           <article class="atout" tabindex="0">
-            <div class="atout__icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
+            <div class="atout__num">01</div>
             <div class="atout__faces">
               <div class="atout__face atout__face--avant"><h3>Une plateforme de formation simple et accessible</h3></div>
               <div class="atout__face atout__face--apres"><p>Suivez vos formations DDA en ligne, à votre rythme.</p></div>
@@ -92,9 +86,7 @@
 
           <!-- Atout 2 -->
           <article class="atout" tabindex="0">
-            <div class="atout__icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 7h6l-3-7zm10 0l-3 7h6l-3-7zM7 21h10"/></svg>
-            </div>
+            <div class="atout__num">02</div>
             <div class="atout__faces">
               <div class="atout__face atout__face--avant"><h3>Animées par des avocats en exercice</h3></div>
               <div class="atout__face atout__face--apres"><p>Une expertise issue de la pratique réelle du droit des assurances.</p></div>
@@ -103,9 +95,7 @@
 
           <!-- Atout 3 -->
           <article class="atout" tabindex="0">
-            <div class="atout__icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8-7 10-4-2-7-5.6-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
+            <div class="atout__num">03</div>
             <div class="atout__faces">
               <div class="atout__face atout__face--avant"><h3>Conforme aux obligations DDA</h3></div>
               <div class="atout__face atout__face--apres"><p>Validez facilement vos 15 heures de formation annuelle.</p></div>
@@ -114,9 +104,7 @@
 
           <!-- Atout 4 -->
           <article class="atout" tabindex="0">
-            <div class="atout__icone" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </div>
+            <div class="atout__num">04</div>
             <div class="atout__faces">
               <div class="atout__face atout__face--avant"><h3>Un gain de temps au quotidien</h3></div>
               <div class="atout__face atout__face--apres"><p>Accédez rapidement à des contenus clairs, utiles et ciblés.</p></div>
@@ -133,11 +121,28 @@
     <section class="section">
       <div class="conteneur">
         <div class="catalogue reveal">
-          <h2>Notre catalogue</h2>
+          <h2>Notre catalogue de formation</h2>
           <p>Découvrez l'ensemble de nos parcours de formation DDA.</p>
           <a class="btn btn--principal" href="assets/docs/catalogue-formations-alta.pdf" target="_blank" rel="noopener">
             Télécharger notre catalogue
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FONDATRICES — photo + citation
+         ========================================================== -->
+    <section class="section section--doux">
+      <div class="conteneur">
+        <div class="fondatrices reveal">
+          <figure class="fondatrices__photo">
+            <img src="assets/img/lise_lucie_cover.png" alt="Lise Peltier et Lucie Rekkouche, avocates et fondatrices d'Alta Assurances">
+          </figure>
+          <div class="fondatrices__citation">
+            <blockquote>« Fortes de nos expériences auprès des professionnels du secteur de l'assurance, notamment dans le cadre de contrôles ACPR, d'audits et de problématiques de conformité, nous avons souhaité concevoir des formations pensées pour les praticiens, directement adaptées aux réalités opérationnelles du terrain et aux enjeux rencontrés au quotidien. »</blockquote>
+            <cite><strong>Lise Peltier &amp; Lucie Rekkouche</strong>Avocates et Fondatrices d'ALTA ASSURANCES</cite>
+          </div>
         </div>
       </div>
     </section>
@@ -152,11 +157,8 @@
           <div class="contact-bloc">
             <h3>Contactez-nous</h3>
             <p>Besoin d'informations sur nos formations DDA ? Notre équipe vous accompagne dans le choix de formations concrètes, opérationnelles et conformes à vos obligations réglementaires.</p>
-            <span class="surtitre">Courriel</span><br>
-            <a class="contact-bloc__mail" href="mailto:contact@alta-assurances.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              contact@alta-assurances.com
-            </a>
+            <span class="contact-mail__label">Courriel</span>
+            <a class="contact-mail" href="mailto:contact@alta-assurances.com">contact@alta-assurances.com</a>
           </div>
 
           <div class="contact-bloc contact-bloc--fonce">
@@ -176,8 +178,6 @@
        ============================================================ -->
   <footer class="footer">
     <div class="conteneur">
-
-      <!-- Newsletter -->
       <div class="footer__newsletter">
         <span class="surtitre">Newsletter</span>
         <h2>Recevez les actualités du secteur assurantiel</h2>
@@ -187,11 +187,9 @@
         </form>
         <p class="footer__petit">En vous abonnant, vous acceptez notre politique de confidentialité et consentez à recevoir des mises à jour.</p>
       </div>
-
-      <!-- Grille de liens -->
       <div class="footer__grille">
         <div class="footer__marque">
-          <img src="assets/img/navbar_Content.png" alt="Alta Assurances">
+          <img class="footer__logo" src="assets/img/hero_logo.png" alt="Alta Assurances">
           <p>Recentrer l'assurance sur ceux qui la font.</p>
           <div class="reseaux">
             <a href="https://www.linkedin.com/company/altaassurances/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -199,16 +197,14 @@
             </a>
           </div>
         </div>
-
         <div class="footer__col">
           <h4>Nos formations</h4>
           <ul>
             <li><a href="a-propos.html">À propos</a></li>
             <li><a href="formations.html">Nos formations</a></li>
-            <li><a href="assets/docs/catalogue-formations-alta.pdf" target="_blank" rel="noopener">Notre catalogue</a></li>
+            <li><a href="assets/docs/catalogue-formations-alta.pdf" target="_blank" rel="noopener">Notre catalogue de formation</a></li>
           </ul>
         </div>
-
         <div class="footer__col">
           <h4>À propos</h4>
           <ul>
@@ -217,17 +213,14 @@
             <li><a href="mentions-legales.html#accessibilite">Accessibilité</a></li>
           </ul>
         </div>
-
         <div class="footer__col">
           <h4>Certification</h4>
-          <div class="qualiopi">
-            <img src="assets/img/qualiopi.png" alt="Qualiopi — Processus certifié — République Française">
-            <p>La certification qualité a été délivrée au titre de la catégorie d'action suivante : actions de formation.</p>
+          <!-- EMPLACEMENT QUALIOPI : déposez l'image dans assets/img/qualiopi.png -->
+          <div class="qualiopi-slot">
+            <img src="assets/img/qualiopi.png" alt="Certification Qualiopi">
           </div>
         </div>
       </div>
-
-      <!-- Barre du bas -->
       <div class="footer__bas">
         <span>© <span data-annee>2026</span> Alta Assurances. Tous droits réservés.</span>
         <nav class="footer__bas-liens" aria-label="Liens légaux">
@@ -236,7 +229,6 @@
           <a href="mentions-legales.html#cookies">Cookies</a>
         </nav>
       </div>
-
     </div>
   </footer>
 
