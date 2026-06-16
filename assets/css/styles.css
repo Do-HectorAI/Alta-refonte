@@ -569,6 +569,33 @@ select:focus-visible {
 /* -----------------------------------------------------------------
    17b. Page « Nos formations » — choix + axes
    ----------------------------------------------------------------- */
+/* Bandeau d'annonce (type alerte) */
+.bandeau-annonce {
+  background: var(--bleu-clair);
+  color: #fff;
+  text-align: center;
+  padding: 13px 24px;
+  font-size: .96rem;
+  font-weight: 500;
+}
+.bandeau-annonce strong { font-weight: 700; }
+
+/* Petit badge « Bientôt disponible » */
+.badge {
+  display: inline-block;
+  font-family: var(--corps);
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--bleu-moyen);
+  background: rgba(78, 114, 172, .12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
 /* Choix des deux types de formation (en tête de page) */
 .choix-grille { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; }
 .choix-carte {
