@@ -135,7 +135,7 @@ select:focus-visible {
   font-size: .98rem;
   letter-spacing: .01em;
   padding: 15px 32px;
-  border-radius: 0;            /* rectangulaire */
+  border-radius: 8px;          /* rectangulaire à coins arrondis */
   border: 1.5px solid transparent;
   cursor: pointer;
   transition: background var(--transition), color var(--transition),
@@ -153,6 +153,9 @@ select:focus-visible {
 /* Bouton clair (sur fond foncé / photo) */
 .btn--clair { background: #fff; color: var(--bleu-principal); }
 .btn--clair:hover { background: rgba(255, 255, 255, .85); }
+
+/* Bouton compact (en-tête) */
+.btn--sm { padding: 9px 20px; font-size: .9rem; }
 
 /* Lien fléché sobre */
 .lien-fleche {
@@ -194,7 +197,8 @@ select:focus-visible {
 }
 
 /* Navigation principale */
-.nav { display: flex; align-items: center; gap: 40px; }
+.nav { display: flex; align-items: center; gap: 36px; }
+.nav__actions { display: flex; align-items: center; gap: 12px; }
 .nav__liens { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
 .nav__liens a {
   font-weight: 500;
@@ -256,10 +260,10 @@ select:focus-visible {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-/* Logo en GRAND, en blanc */
+/* Logo en TRÈS GRAND, en blanc */
 .hero__logo {
-  width: min(560px, 84vw);
-  margin: 0 auto 28px;
+  width: min(780px, 92vw);
+  margin: 0 auto 24px;
   filter: brightness(0) invert(1);   /* logo navy -> blanc */
 }
 /* Slogan plus PETIT, en blanc, léger */
@@ -344,7 +348,7 @@ select:focus-visible {
    ----------------------------------------------------------------- */
 .fondatrices {
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
+  grid-template-columns: 1.3fr .7fr;
   gap: 64px;
   align-items: center;
 }
@@ -352,10 +356,10 @@ select:focus-visible {
 .fondatrices__citation blockquote {
   font-family: var(--titre);
   font-weight: 400;
-  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
-  line-height: 1.4;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.45;
   color: var(--bleu-principal);
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 .fondatrices__citation cite { font-style: normal; color: var(--texte-doux); font-size: 1rem; }
 .fondatrices__citation cite strong { display: block; color: var(--bleu-principal); font-weight: 600; font-size: 1.05rem; margin-bottom: 2px; }
@@ -407,13 +411,12 @@ select:focus-visible {
   border-bottom: 1px solid rgba(255, 255, 255, .14);
 }
 .footer__newsletter h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2.1rem); }
-.footer__form { display: flex; gap: 0; margin-top: 24px; }
+.footer__form { display: flex; gap: 10px; margin-top: 24px; }
 .footer__form input {
   flex: 1;
   padding: 15px 18px;
-  border-radius: 0;
+  border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, .25);
-  border-right: none;
   background: rgba(255, 255, 255, .05);
   color: #fff;
   font-family: var(--corps);
@@ -428,8 +431,8 @@ select:focus-visible {
 .footer__col li { margin-bottom: 14px; }
 .footer__col li a { font-size: .95rem; }
 
-/* Logo complet « Alta Assurances » en GRAND et en blanc */
-.footer__logo { height: 60px; width: auto; filter: brightness(0) invert(1); margin-bottom: 22px; }
+/* Logo complet « Alta Assurances » en TRÈS GRAND et en blanc */
+.footer__logo { height: 104px; width: auto; filter: brightness(0) invert(1); margin-bottom: 24px; }
 .footer__marque p { color: rgba(255, 255, 255, .65); font-size: .95rem; max-width: 280px; }
 
 /* Réseaux sociaux */
@@ -525,7 +528,7 @@ select:focus-visible {
 .champ select {
   padding: 14px 16px;
   border: 1px solid var(--bordure-forte);
-  border-radius: 0;
+  border-radius: 6px;
   font-family: var(--corps);
   font-size: 1rem;
   color: var(--texte);
@@ -608,7 +611,8 @@ select:focus-visible {
   .nav__liens li { border-bottom: 1px solid var(--bordure); }
   .nav__liens a { display: block; padding: 17px 4px; }
   .nav__liens a::after { display: none; }
-  .nav .btn { margin-top: 18px; justify-content: center; }
+  .nav__actions { flex-direction: column; gap: 10px; margin-top: 18px; }
+  .nav__actions .btn { justify-content: center; }
 
   .hero { min-height: 78vh; }
   .apropos-intro { grid-template-columns: 1fr; gap: 40px; }
