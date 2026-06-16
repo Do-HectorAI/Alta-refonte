@@ -40,18 +40,34 @@
   }
 
   /* --------------------------------------------------------------
-     3. Accordéon FAQ
+     3. Accordéon FAQ — ouverture unique
+        (l'ouverture d'une question ferme automatiquement les autres)
      -------------------------------------------------------------- */
-  document.querySelectorAll(".faq__item").forEach(function (item) {
+  var faqItems = Array.prototype.slice.call(document.querySelectorAll(".faq__item"));
+
+  function fermerFaq(item) {
+    item.classList.remove("ouvert");
+    var q = item.querySelector(".faq__q");
+    var r = item.querySelector(".faq__r");
+    if (q) q.setAttribute("aria-expanded", "false");
+    if (r) r.style.maxHeight = null;
+  }
+
+  faqItems.forEach(function (item) {
     var question = item.querySelector(".faq__q");
     var reponse = item.querySelector(".faq__r");
     if (!question || !reponse) return;
 
     question.addEventListener("click", function () {
-      var ouvert = item.classList.toggle("ouvert");
-      question.setAttribute("aria-expanded", ouvert ? "true" : "false");
-      // Animation de hauteur fluide
-      reponse.style.maxHeight = ouvert ? reponse.scrollHeight + "px" : null;
+      var dejaOuvert = item.classList.contains("ouvert");
+      // On ferme toutes les questions...
+      faqItems.forEach(fermerFaq);
+      // ...puis on ouvre celle cliquée si elle ne l'était pas déjà
+      if (!dejaOuvert) {
+        item.classList.add("ouvert");
+        question.setAttribute("aria-expanded", "true");
+        reponse.style.maxHeight = reponse.scrollHeight + "px";
+      }
     });
   });
 

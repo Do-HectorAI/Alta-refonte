@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nos formations — Alta Assurances</title>
-  <meta name="description" content="Formations DDA en e-learning et sur mesure conçues par des avocats en exercice. Page en cours de construction.">
+  <title>Inscription — Alta Assurances</title>
+  <meta name="description" content="Créez votre compte Alta Assurances pour commencer votre parcours de formation DDA.">
   <link rel="icon" type="image/png" href="assets/img/logo.png">
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&f[]=satoshi@400,500,700&display=swap">
@@ -26,7 +26,7 @@
       <nav class="nav" id="nav-principal" aria-label="Navigation principale">
         <ul class="nav__liens">
           <li><a href="a-propos.html">À propos</a></li>
-          <li><a href="formations.html" class="actif">Nos formations</a></li>
+          <li><a href="formations.html">Nos formations</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -43,25 +43,62 @@
     <!-- En-tête de page -->
     <section class="page-hero">
       <div class="conteneur">
-        <span class="surtitre">Nos formations</span>
-        <h1>Nos formations</h1>
-        <p>Des parcours DDA conçus et animés par des avocats en exercice, alliant expertise réglementaire et approche opérationnelle.</p>
+        <span class="surtitre">Espace personnel</span>
+        <h1>Créer un compte</h1>
+        <p>Créez votre compte pour commencer votre parcours DDA.</p>
       </div>
     </section>
 
-    <!-- Emplacement réservé : page à construire ultérieurement -->
-    <!-- TODO : intégrer ici le catalogue complet des formations (e-learning + sur-mesure). -->
+    <!--
+      ====================================================================
+      MAQUETTE — Inscription
+      --------------------------------------------------------------------
+      ⚠️ EMPLACEMENT À RELIER À LA PLATEFORME EXTERNE.
+      Le formulaire ci-dessous n'est PAS fonctionnel pour l'instant.
+      Une plateforme externe (ex. Memberstack, ou autre LMS/SSO) sera
+      branchée ultérieurement.
+
+      Pour brancher la plateforme :
+        1. Remplacer l'« action » du formulaire #form-inscription par
+           l'URL d'inscription fournie par la plateforme,
+           OU ajouter le script/SDK de la plateforme avant </body>.
+        2. Retirer l'attribut « data-maquette » et l'« onsubmit » de secours.
+        3. Adapter les attributs « name » des champs aux clés attendues.
+      ====================================================================
+    -->
     <section class="section">
       <div class="conteneur">
-        <div class="placeholder reveal">
-          <span class="surtitre">Bientôt disponible</span>
-          <h2>Cette page est en cours de construction</h2>
-          <p>Le catalogue détaillé de nos formations sera bientôt disponible ici. En attendant, vous pouvez consulter notre catalogue ou nous contacter directement.</p>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;">
-            <a class="btn btn--principal" href="assets/docs/catalogue-formations-alta.pdf" target="_blank" rel="noopener">Télécharger notre catalogue</a>
-            <a class="btn btn--contour" href="contact.html">Nous contacter</a>
+        <div class="auth-simple reveal">
+          <div class="carte-form">
+            <h2>Créer un compte</h2>
+            <p style="font-size:.95rem;">Pour continuer, vous devez créer un compte.</p>
+            <form class="form" id="form-inscription" data-maquette
+                  onsubmit="event.preventDefault(); alert('Maquette : l\'inscription sera bientôt disponible.');">
+              <div class="form__ligne">
+                <div class="champ">
+                  <label for="reg-prenom">Prénom</label>
+                  <input type="text" id="reg-prenom" name="prenom" autocomplete="given-name">
+                </div>
+                <div class="champ">
+                  <label for="reg-nom">Nom</label>
+                  <input type="text" id="reg-nom" name="nom" autocomplete="family-name">
+                </div>
+              </div>
+              <div class="champ">
+                <label for="reg-email">Courriel</label>
+                <input type="email" id="reg-email" name="email" autocomplete="email">
+              </div>
+              <div class="champ">
+                <label for="reg-mdp">Mot de passe</label>
+                <input type="password" id="reg-mdp" name="password" autocomplete="new-password">
+              </div>
+              <button type="submit" class="btn btn--principal" style="justify-content:center;">Créer mon compte</button>
+            </form>
           </div>
+          <p class="auth-bascule">Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
         </div>
+
+        <p class="auth-note">Maquette d'interface : l'authentification sera prochainement assurée par notre plateforme de formation en ligne.</p>
       </div>
     </section>
 
