@@ -522,11 +522,13 @@ select:focus-visible {
    ----------------------------------------------------------------- */
 .form { display: grid; gap: 20px; }
 .form__ligne { display: grid; gap: 20px; grid-template-columns: 1fr 1fr; }
-.champ { display: flex; flex-direction: column; gap: 8px; }
+.champ { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .champ label { font-weight: 600; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bleu-moyen); }
 .champ input,
 .champ textarea,
 .champ select {
+  width: 100%;
+  max-width: 100%;
   padding: 14px 16px;
   border: 1px solid var(--bordure-forte);
   border-radius: 6px;
