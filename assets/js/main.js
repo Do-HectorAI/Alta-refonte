@@ -102,7 +102,7 @@
   if (formContact) {
     formContact.addEventListener("submit", function (e) {
       e.preventDefault();
-      var destinataire = formContact.getAttribute("data-email") || "contact@alta-assurances.com";
+      var destinataire = formContact.getAttribute("data-email") || "contact@alta-assurances.fr";
 
       var nom = (formContact.querySelector("[name=nom]") || {}).value || "";
       var societe = (formContact.querySelector("[name=societe]") || {}).value || "";
