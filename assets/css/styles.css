@@ -767,3 +767,11 @@ select:focus-visible {
   .reveal { opacity: 1; transform: none; }
   .hero::before { filter: brightness(.62); }
 }
+/* Filet de sécurité : le contenu légal doit rester lisible
+   même si l'animation d'apparition ne se déclenche pas. */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
