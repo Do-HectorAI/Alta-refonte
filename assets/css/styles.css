@@ -587,14 +587,16 @@ select:focus-visible {
   display: inline-block;
   font-family: var(--corps);
   font-weight: 600;
-  font-size: .72rem;
-  letter-spacing: .08em;
+  font-size: .6rem;
+  line-height: 1.4;
+  letter-spacing: .06em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--bleu-moyen);
   background: rgba(78, 114, 172, .12);
-  padding: 5px 12px;
+  padding: 3px 8px;
   border-radius: 999px;
-  margin-left: 10px;
+  margin-left: 8px;
   vertical-align: middle;
 }
 
@@ -610,6 +612,7 @@ select:focus-visible {
   transition: box-shadow var(--transition), transform var(--transition);
 }
 .choix-carte:hover { box-shadow: var(--ombre-douce); transform: translateY(-3px); }
+.choix-carte .surtitre { white-space: nowrap; }
 .choix-carte h3 { font-size: 1.5rem; margin-bottom: 12px; }
 .choix-carte p { flex: 1; font-size: 1rem; }
 .choix-carte .btn { margin-top: 8px; }
@@ -753,6 +756,7 @@ select:focus-visible {
 
 @media (max-width: 560px) {
   .atouts { grid-template-columns: 1fr; }
+  .choix-carte .surtitre { white-space: normal; }
   .atout { border-right: none; border-bottom: 1px solid var(--bordure); }
   .footer__grille { grid-template-columns: 1fr; gap: 36px; }
   .footer__form { flex-direction: column; gap: 12px; }
