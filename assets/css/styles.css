@@ -246,11 +246,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
   white-space: nowrap;
 }
-.bandeau-compte a { color: #fff; font-weight: 600; border-bottom: 1px solid rgba(255, 255, 255, .4); }
-.bandeau-compte a:hover { border-bottom-color: #fff; }
 .bandeau-compte__court { display: none; }
 .avec-bandeau .bandeau-compte { transform: none; visibility: visible; }
 /* L'en-tête collant se décale sous le bandeau (sans faire sauter la page) */
@@ -639,7 +636,6 @@ select:focus-visible {
 .acces__num { font-family: var(--titre); font-size: 1.1rem; color: var(--bleu-clair); line-height: 1.5; }
 .acces__etapes h4 { font-size: 1.1rem; margin-bottom: 6px; }
 .acces__etapes p { font-size: .96rem; margin: 0; }
-.acces__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
 
 /* Petit badge « Bientôt disponible » */
 .badge {
