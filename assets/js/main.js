@@ -126,7 +126,23 @@
   }
 
   /* --------------------------------------------------------------
-     6. Année dynamique dans le pied de page
+     6. Bandeau « créez votre compte » (accueil)
+        Affiché dès que le hero est passé sous l'en-tête.
+     -------------------------------------------------------------- */
+  var bandeauCompte = document.querySelector(".bandeau-compte");
+  var hero = document.querySelector(".hero");
+  if (bandeauCompte && hero) {
+    var majBandeau = function () {
+      var horsHero = hero.getBoundingClientRect().bottom <= 68;
+      document.body.classList.toggle("avec-bandeau", horsHero);
+    };
+    window.addEventListener("scroll", majBandeau, { passive: true });
+    window.addEventListener("resize", majBandeau);
+    majBandeau();
+  }
+
+  /* --------------------------------------------------------------
+     7. Année dynamique dans le pied de page
      -------------------------------------------------------------- */
   document.querySelectorAll("[data-annee]").forEach(function (el) {
     el.textContent = new Date().getFullYear();

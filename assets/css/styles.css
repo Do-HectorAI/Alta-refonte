@@ -225,6 +225,38 @@ select:focus-visible {
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Bandeau « créez votre compte » (accueil) : glisse au-dessus de
+   l'en-tête une fois le hero dépassé (classe posée par main.js) */
+.bandeau-compte {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+  height: 34px;
+  background: var(--bleu-principal);
+  color: rgba(255, 255, 255, .85);
+  font-size: .84rem;
+  font-weight: 500;
+  letter-spacing: .01em;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform var(--transition), visibility var(--transition);
+}
+.bandeau-compte .conteneur {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  white-space: nowrap;
+}
+.bandeau-compte a { color: #fff; font-weight: 600; border-bottom: 1px solid rgba(255, 255, 255, .4); }
+.bandeau-compte a:hover { border-bottom-color: #fff; }
+.bandeau-compte__court { display: none; }
+.avec-bandeau .bandeau-compte { transform: none; visibility: visible; }
+/* L'en-tête collant se décale sous le bandeau (sans faire sauter la page) */
+.entete { transition: top var(--transition); }
+.avec-bandeau .entete { top: 34px; }
+
 /* -----------------------------------------------------------------
    6. Hero (accueil) — logo + slogan SUR la photo
    ----------------------------------------------------------------- */
@@ -582,6 +614,33 @@ select:focus-visible {
 }
 .bandeau-annonce strong { font-weight: 700; }
 
+/* Encadré « Accédez à nos formations DDA en ligne » */
+.acces {
+  max-width: 960px;
+  margin: 0 auto 72px;
+  background: var(--fond);
+  border: 1px solid var(--bordure);
+  border-top: 3px solid var(--bleu-principal);
+  padding: clamp(32px, 5vw, 52px);
+}
+.acces__intro { text-align: center; max-width: 640px; margin: 0 auto 36px; }
+.acces__intro h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+.acces__intro p { font-size: 1.05rem; margin: 14px 0 0; }
+.acces__etapes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--bordure);
+}
+.acces__etapes li { display: flex; gap: 16px; padding: 28px 24px 0 0; }
+.acces__etapes li + li { padding-left: 24px; border-left: 1px solid var(--bordure); }
+.acces__num { font-family: var(--titre); font-size: 1.1rem; color: var(--bleu-clair); line-height: 1.5; }
+.acces__etapes h4 { font-size: 1.1rem; margin-bottom: 6px; }
+.acces__etapes p { font-size: .96rem; margin: 0; }
+.acces__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
 /* Petit badge « Bientôt disponible » */
 .badge {
   display: inline-block;
@@ -754,11 +813,16 @@ select:focus-visible {
   .contact-bloc { border-right: none; border-bottom: 1px solid var(--bordure); }
   .fondatrices { grid-template-columns: 1fr; gap: 36px; }
   .choix-grille { grid-template-columns: 1fr; }
+  .acces__etapes { grid-template-columns: 1fr; }
+  .acces__etapes li { padding: 22px 0 0; }
+  .acces__etapes li + li { padding-left: 0; border-left: none; }
   .media-bleu__entete { gap: 18px; }
   .theme { grid-template-columns: 1fr; gap: 10px; padding: 28px 24px; }
 }
 
 @media (max-width: 560px) {
+  .bandeau-compte__long { display: none; }
+  .bandeau-compte__court { display: inline; }
   .atouts { grid-template-columns: 1fr; }
   .choix-carte .surtitre { white-space: normal; }
   .atout { border-right: none; border-bottom: 1px solid var(--bordure); }
