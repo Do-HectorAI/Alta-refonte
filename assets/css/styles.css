@@ -370,7 +370,7 @@ select:focus-visible {
    ----------------------------------------------------------------- */
 .catalogue { text-align: center; max-width: 640px; margin: 0 auto; }
 .catalogue h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
-.catalogue p { margin: 0 auto 30px; }
+.catalogue p { margin: 0 auto; }
 
 /* -----------------------------------------------------------------
    10. Section fondatrices (photo + citation)
@@ -620,7 +620,8 @@ select:focus-visible {
   border-top: 3px solid var(--bleu-principal);
   padding: clamp(32px, 5vw, 52px);
 }
-.acces--accueil { margin: 72px auto 0; }
+.acces--accueil { margin: 48px auto 0; }
+.catalogue__action { text-align: center; margin-top: 40px; }
 .acces__intro { text-align: center; max-width: 640px; margin: 0 auto 36px; }
 .acces__intro h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
 .acces__intro p { font-size: 1.05rem; margin: 14px 0 0; }
@@ -638,17 +639,16 @@ select:focus-visible {
 .acces__etapes h4 { font-size: 1.1rem; margin-bottom: 6px; }
 .acces__etapes p { font-size: .96rem; margin: 0; }
 
-/* Version simplifiée (page Nos formations) */
+/* Version simplifiée (page Nos formations) : une seule ligne */
 .acces-note {
   max-width: 960px;
-  margin: 0 auto 72px;
-  background: var(--fond);
-  border: 1px solid var(--bordure);
+  margin: 0 auto 56px;
+  padding: 14px 20px;
   border-left: 3px solid var(--bleu-principal);
-  padding: 26px 32px;
+  background: var(--fond);
+  font-size: 1rem;
 }
-.acces-note h3 { font-size: 1.25rem; margin-bottom: 8px; }
-.acces-note p { margin: 0; font-size: 1rem; text-align: justify; }
+.acces-note strong { color: var(--bleu-principal); font-weight: 600; }
 
 /* Petit badge « Bientôt disponible » */
 .badge {
