@@ -639,16 +639,20 @@ select:focus-visible {
 .acces__etapes h4 { font-size: 1.1rem; margin-bottom: 6px; }
 .acces__etapes p { font-size: .96rem; margin: 0; }
 
-/* Version simplifiée (page Nos formations) : une seule ligne */
+/* Version simplifiée (page Nos formations) : phrase + 3 étapes */
 .acces-note {
   max-width: 960px;
   margin: 0 auto 56px;
-  padding: 14px 20px;
+  padding: 16px 22px;
   border-left: 3px solid var(--bleu-principal);
   background: var(--fond);
   font-size: 1rem;
 }
+.acces-note p { margin: 0 0 8px; font-size: 1rem; }
 .acces-note strong { color: var(--bleu-principal); font-weight: 600; }
+.acces-note ol { list-style: none; counter-reset: etape; margin: 0; padding: 0; }
+.acces-note li { counter-increment: etape; display: flex; gap: 12px; color: var(--texte-doux); font-size: .96rem; margin-top: 4px; }
+.acces-note li::before { content: "0" counter(etape); font-family: var(--titre); color: var(--bleu-clair); }
 
 /* Petit badge « Bientôt disponible » */
 .badge {
