@@ -370,7 +370,9 @@ select:focus-visible {
    ----------------------------------------------------------------- */
 .catalogue { text-align: center; max-width: 640px; margin: 0 auto; }
 .catalogue h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
-.catalogue p { margin: 0 auto 30px; }
+.catalogue p { margin: 0 auto 14px; }
+.catalogue p:last-of-type { margin-bottom: 30px; }
+.catalogue__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
 
 /* -----------------------------------------------------------------
    10. Section fondatrices (photo + citation)
